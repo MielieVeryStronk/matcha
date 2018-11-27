@@ -1,0 +1,279 @@
+img.logo {
+    height: 50px;
+}
+
+.cam-grid-container {
+    justify-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+}
+.cam-grid-item {
+    height: 100px;
+    width: 50%;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 8%;
+    color: white;
+    background-color: grey;
+    margin-top: 20px;
+}
+
+.cam-usr-btn {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+form.signup-form {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+form.signup-form input {
+    padding: 0px 5%;
+    margin-bottom: 4px;
+    width: 90%;
+    height: 40px;
+    border: none;
+    background-color: #42CAFD;
+    font-family: arial;
+    font-size: 16px;
+    color: #40798C;
+    line-height: 40px; 
+}
+
+form.signup-form button {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: 40px;
+    border: none;
+    background-color: #40798C;
+    font-family: arial;
+    font-size: 16px;
+    color: #42CAFD;
+    cursor: pointer;
+}
+
+form.signup-form button:hover {
+    background-color: #40798C;
+}
+
+.fixed-elem {
+    position: fixed;
+}
+
+/* The Modal */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cmt-scroll {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 80px;
+    width: 100%;
+}
+
+.cmt-elem {
+    margin-left: 10px;
+    margin-top: 2px;
+    padding-left: 5px;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.cmt-user {
+    color: rgb(40, 122, 151);
+}
+
+.confirm-btn {
+    user-select: none;
+}
+
+.video {
+    display: none;
+}
+
+.display-none {
+    display: none;
+}
+
+.reverse-img {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform:rotateY(180deg);
+}
+
+.comment-box {
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 30px;
+}
+
+.feed-buttons {
+    display: block;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.heart {
+    background-color: red;
+    height: 30px;
+    transform: rotate(-45deg);
+    width: 30px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+  }
+
+.like-number {
+    transform: rotate(45deg);
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.go-to-feed {
+    cursor: pointer;
+    width: 40%;
+}
+
+.sticker-item {
+    height: 80px;
+    width: 80px;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    background-color: #ddd;
+}
+
+.landing-back {
+    background-image: url("http://mediad.publicbroadcasting.net/p/shared/npr/201807/574977417.jpeg");
+    background-size: contain;
+}
+
+.nav-mobile {
+    margin-top: 80px;
+}
+
+.video {
+    width: 320px;
+    height: 240px;
+}
+
+.canvas-snap {
+    width: 320px;
+    height: 240px;
+}
+
+@media screen and (max-width: 540px) {
+    .go-to-feed {
+        width: 100%;
+    }
+    .landing-back {
+        background-image: url("resources/images/avatar.jpg");
+    }
+    .cam-grid-container {
+    grid-template-columns: 1fr;
+    }
+    form.signup-form button {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        height: 40px;
+        border: none;
+        background-color: #40798C;
+        font-family: arial;
+        font-size: 16px;
+        color: #42CAFD;
+        cursor: pointer;
+    }
+    .modal-content {
+        width: 80%;
+    }
+    .preview {
+        width: 240px;
+        height: 180px;
+    }
+    .video {
+        width: 240px;
+        height: 180px;
+    }
+    
+    .canvas-snap {
+        width: 240px;
+        height: 180px;
+    }
+}
