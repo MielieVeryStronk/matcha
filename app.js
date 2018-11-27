@@ -40,6 +40,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// set up mysql database
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
+  database: 'database name'
+});
+connection.connect((err) => {
+  if (err) throw err;
+});
 
 
 module.exports = app;
