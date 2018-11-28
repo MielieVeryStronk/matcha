@@ -1,15 +1,20 @@
 <title>Change Email</title>
 <?php
-echo '<body class="w3-theme-l5">';
 include_once 'stylesheets.php';
 include_once 'header.php';
 ?>
-<section class="main-container">
+<section class="container text-center w-75 mt-5 border border-dark rounded" style="max-width: 600px">
 	<div class="main-wrapper">
-		<h2>Signup</h2>
-		<form class="signup-form" action="utils/changeEmail.php" method="POST">
-			<input type="password" name="pwd" placeholder="password" required>
-			<input type="email" name="newEmail" placeholder="new email" required>
+		<h2>Change Email</h2>
+		<form action="utils/changeEmail.php" method="POST">
+			<div class="form-group text-left">
+				<label for="emailBox">E-mail</label>
+				<input type="email" class="form-control" name="newEmail" id="emailBox" aria-describedby="emailHelp" placeholder="E-mail" required>
+			</div>
+			<div class="form-group text-left">
+				<label for="passBox">Password</label>
+				<input type="password" class="form-control" name="pwd" id="passBox" aria-describedby="PassHelp" placeholder="Password" required>
+			</div>
             <?php
 			if ($_GET['change'] == 'email')
 			{
@@ -28,7 +33,7 @@ include_once 'header.php';
 				echo '<p class="signup-err w3-text-theme">Email changed successfully, please verify your account again.</p>';
 			}
 			?>
-			<button type="submit" name="submit">Change Email</button>
+			<button class="btn btn-primary" type="submit" name="submit">Change Email</button>
 		</form>
 	</div>
 </section>

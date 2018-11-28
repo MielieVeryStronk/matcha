@@ -4,6 +4,8 @@ if (isset($_POST['submit']))
 {
 	include_once 'database.php';
 
+	$first = $_POST['first'];
+	$last = $_POST['last'];
 	$username = $_POST['username'];
 	$pwd = $_POST['pwd'];
 	$pwdConfirm = $_POST['pwdConfirm'];
@@ -17,7 +19,7 @@ if (isset($_POST['submit']))
 	}
 	else
 	{
-		if (!preg_match("/^[a-zA-Z]*$/", $username))
+		if (!preg_match("/^[a-zA-Z]*$/", $username) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last))
 		{
 			header("Location: ../signup.php?signup=invalid");
 			exit();
@@ -65,9 +67,9 @@ if (isset($_POST['submit']))
 				else
 				{
 					$verify_hash = md5(rand(1000, 9999));
-					$query = "INSERT into `users` SET user_name=?, user_email=?, user_pwd=?, user_verify_hash=?";
+					$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_pwd=?, user_verify_hash=?";
 					$stmt = $pdo->prepare($query);
-					$stmt->execute([$username, $email, $hashedPwd, $verify_hash]);
+					$stmt->execute([$first, $last, $username, $email, $hashedPwd, $verify_hash]);
 					header("Location: ../signup.php?signup=success");
 					$subject = 'Matcha Signup Verification';
 					$message = '

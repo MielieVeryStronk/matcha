@@ -243,7 +243,7 @@ form.signup-form button:hover {
         width: 100%;
     }
     .landing-back {
-        background-image: url("resources/images/avatar.jpg");
+        background-image: url("https://www.publicdomainpictures.net/pictures/170000/nahled/seamless-abstract-background-red-1462635799F9l.jpg");
     }
     .cam-grid-container {
     grid-template-columns: 1fr;
@@ -271,7 +271,6 @@ form.signup-form button:hover {
         width: 240px;
         height: 180px;
     }
-    
     .canvas-snap {
         width: 240px;
         height: 180px;
