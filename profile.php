@@ -3,6 +3,7 @@
 echo '<body';
 include_once 'stylesheets.php';
 include_once 'header.php';
+include_once 'utils/database.php';
 ?>
 <section class="container text-center w-75 mt-5 mb-5 border border-dark rounded pt-3" style="max-width: 600px">
 	<div class="main-wrapper">
@@ -121,6 +122,26 @@ include_once 'header.php';
  </div><!-- row -->
 </div>
 
+<!-- Tags -->
+
+<div class="text-left w-100 container">
+<h4>Tags: </h4>
+<div class="tag-box border border-light rounded text-center">
+<?php
+$query = "SELECT * FROM tags";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$tags = $stmt->fetchAll();
+foreach($tags as $tag)
+{
+  echo ' <div class="btn btn-danger mt-1">
+  # 
+  '.$tag['tag_name'].'
+  </div>';
+}
+?>
+</div>
+<div>
 
 
 
