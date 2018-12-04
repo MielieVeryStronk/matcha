@@ -4,24 +4,29 @@ echo '<body';
 include_once 'stylesheets.php';
 include_once 'header.php';
 include_once 'utils/database.php';
+$query = "SELECT * FROM users WHERE user_email=?";
+$stmt = $pdo->prepare($query);
+$stmt->execute([$_SESSION['u_email']]);
+$result = $stmt->fetch();
 ?>
+
 <section class="container text-center w-75 mt-5 mb-5 border border-dark rounded pt-3" style="max-width: 600px">
 	<div class="main-wrapper">
 		<form action="utils/profile.php" method="POST">
 <!-- First Name -->
         <div class="form-group text-left">
             <label for="firstBox">First Name</label>
-            <input type="text" class="form-control" name="newFirst" id="firstBox" aria-describedby="PassHelp" placeholder="First Name" required>
+            <input type="text" class="form-control" name="newFirst" id="firstBox" aria-describedby="PassHelp" value="<?php echo $result['user_first'] ?>" required>
         </div>
 <!-- Last Name -->
         <div class="form-group text-left">
             <label for="lastBox">Last Name</label>
-            <input type="text" class="form-control" name="newFirst" id="lastBox" aria-describedby="PassHelp" placeholder="Last Name" required>
+            <input type="text" class="form-control" name="newFirst" id="lastBox" aria-describedby="PassHelp" value="<?php echo $result['user_last'] ?>" required>
         </div>
 <!-- Username -->
         <div class="form-group text-left">
             <label for="passBox">Username</label>
-            <input type="text" class="form-control" name="newUser" id="userBox" aria-describedby="PassHelp" placeholder="Username" required>
+            <input type="text" class="form-control" name="newUser" id="userBox" aria-describedby="PassHelp" value="<?php echo $result['user_name'] ?>" required>
         </div>
 <br />
 
@@ -41,7 +46,7 @@ include_once 'utils/database.php';
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="sexRadio" id="sexRadio3" value="0">
+  <input class="form-check-input" type="radio" name="sexRadio" id="sexRadio0" value="0">
   <label class="file-label" for="sexRadio3">
     Both
   </label>
@@ -126,7 +131,7 @@ include_once 'utils/database.php';
 
 <div class="text-left w-100 container">
 <h4>Tags: </h4>
-<div class="tag-box border border-light rounded text-center">
+<div class="tag-box border border-light rounded text-center" id="tagBox">
 <?php
 $query = "SELECT * FROM tags";
 $stmt = $pdo->prepare($query);
@@ -134,12 +139,17 @@ $stmt->execute();
 $tags = $stmt->fetchAll();
 foreach($tags as $tag)
 {
-  echo ' <div class="btn btn-danger mt-1">
+  echo ' <div class="btn btn-danger mt-1" id="tag'.$tag['tag_id'].'">
   # 
   '.$tag['tag_name'].'
   </div>';
 }
 ?>
+</div>
+<br />
+<h4>Your Tags: </h4>
+<div class="tag-box border border-light rounded text-center" id="yourTags">
+
 </div>
 <div>
 
@@ -172,4 +182,8 @@ uploadFile.closest(".imgUp").find('.imagePreview2').css("background-image", "url
       
     });
 });
+
+var sexPref = <?php echo $result['user_sex_pref'] ?>;
+var genderPref = <?php echo $result['user_gender'] ?>;
+document.getElementById("sexRadio" + sexPref).setAttribute("checked", "checked");
 </script>

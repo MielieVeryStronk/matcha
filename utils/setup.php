@@ -43,6 +43,8 @@ try {
 	user_last varchar(256) not null,
 	user_name varchar(256) not null,
 	user_email varchar(256) not null,
+	user_sex_pref int(2) DEFAULT 0,
+	user_gender int(2) DEFAULT 0,
 	user_pwd varchar(256) not null,
 	user_valid varchar(5) DEFAULT false,
 	user_time datetime default CURRENT_TIMESTAMP,
@@ -55,6 +57,12 @@ try {
 } catch (PDOException $e) {
     die("table USERS create failure".$e->getMessage()."</br>");
 }
+
+// Default Profile
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_pwd=?, user_verify_hash=?, user_valid=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Emile", "Nikel", "enikel", "enikel@test.com", $hashedPwd, "test", true]);
 
 // create img table
 
