@@ -28,7 +28,7 @@ if (isset($_POST['submit']))
 			$_SESSION['u_id'] = $result['user_id'];
 			$_SESSION['u_name'] = $result['user_name'];
 			$_SESSION['u_email'] = $result['user_email'];
-			header("Location: ../feed.php?login=success");
+			header("Location: ../profile.php?login=success");
 			exit();
 		}
 		else

@@ -12,21 +12,21 @@ $result = $stmt->fetch();
 
 <section class="container text-center w-75 mt-5 mb-5 border border-dark rounded pt-3" style="max-width: 600px">
 	<div class="main-wrapper">
-		<form action="utils/profile.php" method="POST">
+		<form action="utils/profile.php" method="POST" enctype="multipart/form-data">
 <!-- First Name -->
         <div class="form-group text-left">
             <label for="firstBox">First Name</label>
-            <input type="text" class="form-control" name="newFirst" id="firstBox" aria-describedby="PassHelp" value="<?php echo $result['user_first'] ?>" required>
+            <input type="text" class="form-control" name="first" id="firstBox" aria-describedby="PassHelp" value="<?php echo $result['user_first'] ?>" required>
         </div>
 <!-- Last Name -->
         <div class="form-group text-left">
             <label for="lastBox">Last Name</label>
-            <input type="text" class="form-control" name="newFirst" id="lastBox" aria-describedby="PassHelp" value="<?php echo $result['user_last'] ?>" required>
+            <input type="text" class="form-control" name="last" id="lastBox" aria-describedby="PassHelp" value="<?php echo $result['user_last'] ?>" required>
         </div>
 <!-- Username -->
         <div class="form-group text-left">
             <label for="passBox">Username</label>
-            <input type="text" class="form-control" name="newUser" id="userBox" aria-describedby="PassHelp" value="<?php echo $result['user_name'] ?>" required>
+            <input type="text" class="form-control" name="username" id="userBox" aria-describedby="PassHelp" value="<?php echo $result['user_name'] ?>" required>
         </div>
 <br />
 
@@ -34,20 +34,20 @@ $result = $stmt->fetch();
 <div class="text-left">
 <h4>Sexual Preference:</h4>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="sexRadio" id="sexRadio1" value="1">
-  <label class="file-label" for="sexRadio1">
+  <input class="form-check-input" type="radio" name="sexpref" id="sexRadio0" value="0">
+  <label class="file-label" for="sexRadio0">
     Male
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="sexRadio" id="sexRadio2" value="2">
-  <label class="file-label" for="sexRadio2">
+  <input class="form-check-input" type="radio" name="sexpref" id="sexRadio1" value="1">
+  <label class="file-label" for="sexRadio1">
     Female
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="sexRadio" id="sexRadio0" value="0">
-  <label class="file-label" for="sexRadio3">
+  <input class="form-check-input" type="radio" name="sexpref" id="sexRadio2" value="2">
+  <label class="file-label" for="sexRadio2">
     Both
   </label>
 </div>
@@ -58,14 +58,14 @@ $result = $stmt->fetch();
 <div class="text-left">
 <h4>Gender:</h4>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio1" value="1">
-  <label class="file-label" for="sexRadio1">
+  <input class="form-check-input" type="radio" name="gender" id="genderRadio0" value="0">
+  <label class="file-label" for="sexRadio0">
     Male
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio2" value="2">
-  <label class="file-label" for="sexRadio2">
+  <input class="form-check-input" type="radio" name="gender" id="genderRadio1" value="1">
+  <label class="file-label" for="sexRadio1">
     Female
   </label>
 </div>
@@ -76,16 +76,16 @@ $result = $stmt->fetch();
 <div class="text-left">
 <h4>Birth Date:</h4>
     <div class="input-group date">
-        <input class="form-control" type="date" name="birthDate" id="datePicker" max="<?php echo date('Y-m-d', $maxDate); ?>" value="">
+        <input class="form-control" type="date" name="birthDate" id="datePicker" max="<?php echo date('Y-m-d', $maxDate); ?>" value="<?php echo $result['user_birth'] ?>">
     </div>
 </div>
 <br />
 
 <!-- Bio -->
 <div class="text-left">
-<h4>Bio:</h4>
+<h4>Bio: <p id="bioHead"></p></h4>
     <div class="input-group date">
-        <textarea class="form-control border rounded" name="bio" id="bioText"></textarea>
+        <textarea maxlength="240" class="form-control border rounded" name="bio"><?php echo $result['user_bio'] ?></textarea>
     </div>
 </div>
 <br />
@@ -97,31 +97,31 @@ $result = $stmt->fetch();
   <div class="col-sm-12 imgUp">
     <label class="imgLabel1">
         <div class="imagePreview1"></div>
-				<input type="file" name="img1" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+				<input type="file" name="img1" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-8 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
         <div class="imagePreview2"></div>
-				<input type="file" name="img2" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+				<input type="file" name="img2" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
         <div class="imagePreview2"></div>
-				<input type="file" name="img3" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+				<input type="file" name="img3" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
         <div class="imagePreview2"></div>
-				<input type="file" name="img4" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+				<input type="file" name="img4" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
         <div class="imagePreview2"></div>
-				<input type="file" name="img5" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+				<input type="file" name="img5" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
  </div><!-- row -->
@@ -139,7 +139,7 @@ $stmt->execute();
 $tags = $stmt->fetchAll();
 foreach($tags as $tag)
 {
-  echo ' <div class="btn btn-danger mt-1" id="tag'.$tag['tag_id'].'">
+  echo ' <div class="btn btn-danger mt-1" id="tag'.$tag['tag_id'].'" onclick="addRemoveTag('.$tag['tag_id'].')">
   # 
   '.$tag['tag_name'].'
   </div>';
@@ -149,11 +149,23 @@ foreach($tags as $tag)
 <br />
 <h4>Your Tags: </h4>
 <div class="tag-box border border-light rounded text-center" id="yourTags">
-
+<?php
+foreach($tags as $tag)
+{
+  echo ' <div class="btn btn-danger mt-1" id="uTag'.$tag['tag_id'].'" onclick="addRemoveTag('.$tag['tag_id'].')">
+  # 
+  '.$tag['tag_name'].'
+  </div>';
+}
+?>
+<input type="hidden" id="tagInput" name="tags" value="">
 </div>
 <div>
 
-
+<!-- Submit -->
+<div class="text-center">
+  <input class="btn btn-outline-danger mt-3" type="submit" name="submit" value="Submit">
+</div>
 
 <!-- End Form -->
     </form>
@@ -183,7 +195,14 @@ uploadFile.closest(".imgUp").find('.imagePreview2').css("background-image", "url
     });
 });
 
+function addRemoveTag(id) {
+  // var tagInput = document.getElementById('tagInput');
+  // var tags = tagInput.value;
+  document.getElementById('uTag' + id).style.display = "inline-block";
+}
+
 var sexPref = <?php echo $result['user_sex_pref'] ?>;
 var genderPref = <?php echo $result['user_gender'] ?>;
 document.getElementById("sexRadio" + sexPref).setAttribute("checked", "checked");
+document.getElementById("genderRadio" + genderPref).setAttribute("checked", "checked");
 </script>
