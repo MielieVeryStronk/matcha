@@ -96,31 +96,31 @@ $result = $stmt->fetch();
   <div class="row w-100 text-center">
   <div class="col-sm-12 imgUp">
     <label class="imgLabel1">
-        <div class="imagePreview1"></div>
+        <div class="imagePreview1" <?php if ($result['user_img1']) { echo 'style="background: url(data:image/png;base64,'.$result["user_img1"].'); background-size: cover;";'; } ?>></div>
 				<input type="file" name="img1" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-8 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
-        <div class="imagePreview2"></div>
+        <div class="imagePreview2" <?php if ($result['user_img2']) { echo 'style="background: url(data:image/png;base64,'.$result["user_img2"].'); background-size: cover;";'; } ?>></div>
 				<input type="file" name="img2" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
-        <div class="imagePreview2"></div>
+        <div class="imagePreview2" <?php if ($result['user_img3']) { echo 'style="background: url(data:image/png;base64,'.$result["user_img3"].'); background-size: cover;";'; } ?>></div>
 				<input type="file" name="img3" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
-        <div class="imagePreview2"></div>
+        <div class="imagePreview2" <?php if ($result['user_img4']) { echo 'style="background: url(data:image/png;base64,'.$result["user_img4"].'); background-size: cover;";'; } ?>></div>
 				<input type="file" name="img4" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
   <div class="col-sm-3 imgUp">
     <label class="imgLabel2">
-        <div class="imagePreview2"></div>
+        <div class="imagePreview2" <?php if ($result['user_img5']) { echo 'style="background: url(data:image/png;base64,'.$result["user_img5"].'); background-size: cover;";'; } ?>></div>
 				<input type="file" name="img5" class="uploadFile img" value="" style="width: 0px;height: 0px;overflow: hidden;">
 				</label>
   </div><!-- col-4 -->
@@ -152,13 +152,14 @@ foreach($tags as $tag)
 <?php
 foreach($tags as $tag)
 {
-  echo ' <div class="btn btn-danger mt-1" id="uTag'.$tag['tag_id'].'" onclick="addRemoveTag('.$tag['tag_id'].')">
+  echo ' <div class="u-tag" id="uTag'.$tag['tag_id'].'" onclick="addRemoveTag('.$tag['tag_id'].')">
   # 
   '.$tag['tag_name'].'
   </div>';
 }
 ?>
-<input type="hidden" id="tagInput" name="tags" value="">
+<!-- Hidden input for tags -->
+<input type="hidden" id="tagInput" name="tags" value="<?php echo $result['user_tags'] ?>">
 </div>
 <div>
 
@@ -196,9 +197,34 @@ uploadFile.closest(".imgUp").find('.imagePreview2').css("background-image", "url
 });
 
 function addRemoveTag(id) {
-  // var tagInput = document.getElementById('tagInput');
-  // var tags = tagInput.value;
-  document.getElementById('uTag' + id).style.display = "inline-block";
+  var tagInput = document.getElementById('tagInput');
+  var arr = tagInput.value.split(",");
+  console.log(arr);
+  var find = arr.indexOf(id);
+  if (find == -1) {
+    // Add
+    tagInput.value = tagInput.value + "," + id;
+    document.getElementById('uTag' + id).style.display = "inline-block";
+    document.getElementById("uTag" + id).className = "btn btn-danger mt-1";
+    document.getElementById('tag' + id).style.display = "none";
+  } else {
+    // Remove
+    tagInput.value.replace("," + id, "");
+    document.getElementById('uTag' + id).style.display = "none";
+    document.getElementById("uTag" + id).className = "u-tag";
+    document.getElementById('tag' + id).style.display = "inline-block";
+  }
+}
+
+var tagInput = document.getElementById('tagInput');
+var arr = tagInput.value.split(",");
+arr.forEach(displayTags);
+function displayTags(id) {
+  if (id) {
+    document.getElementById('tag' + id).style.display = "none";
+    document.getElementById("uTag" + id).className = "btn btn-danger mt-1";
+    document.getElementById('uTag' + id).style.display = "inline-block";
+  }
 }
 
 var sexPref = <?php echo $result['user_sex_pref'] ?>;
