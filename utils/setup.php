@@ -66,11 +66,43 @@ try {
     die("table USERS create failure".$e->getMessage()."</br>");
 }
 
-// Default Profile
+// Test Profiles
+$image1 = base64_encode(file_get_contents("../resources/images/profiles/zuck.jpeg"));
+$image2 = base64_encode(file_get_contents("../resources/images/profiles/elton.jpg"));
+$image3 = base64_encode(file_get_contents("../resources/images/profiles/tom.jpg"));
+$image4 = base64_encode(file_get_contents("../resources/images/profiles/scarlett.jpg"));
+$image5 = base64_encode(file_get_contents("../resources/images/profiles/ellen.jpg"));
+$image6 = base64_encode(file_get_contents("../resources/images/profiles/katy.jpg"));
+// M4F
 	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
-	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_pwd=?, user_verify_hash=?, user_valid=?";
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
 	$stmt = $pdo->prepare($query);
-	$stmt->execute(["Emile", "Nikel", "enikel", "enikel@test.com", $hashedPwd, "test", true]);
+	$stmt->execute(["Mister", "Straight", "mrstraight", "mrstraight@test.com", 1, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image1]);
+// M4M
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Mister", "Gay", "mrgay", "mrgay@test.com", 0, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image2]);
+// M4B
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Mister", "Bi", "mrbi", "mrbi@test.com", 2, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image3]);
+// F4M
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Miss", "Straight", "msstraight", "msstraight@test.com", 0, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image4]);
+// F4F
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Miss", "Lesbian", "mslesbian", "mslesbian@test.com", 1, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image5]);
+// F4B
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(["Miss", "Bi", "msbi", "msbi@test.com", 2, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image6]);
 
 // create img table
 
