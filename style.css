@@ -340,7 +340,8 @@ form.signup-form button:hover {
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #D62929;
+	background-image: linear-gradient(to bottom, rgba(170,0,0,1), rgba(255,0,0,1) 50%, rgba(170,0,0,1));
+	/* background-color: linear-gradient(); to bottom, rgba(255,0,0,0) 10%, rgba(255,0,0,1) 80%, rgba(255,0,0,0) 10% */
 }
 
 .u-tag {
@@ -357,5 +358,8 @@ form.signup-form button:hover {
 .card {
     padding-left : 0px !important;
     padding-right : 0px !important;
+    border-image : linear-gradient(to bottom, rgba(255,0,0,0) 33%, rgba(255,0,0,0.8)) !important;
+    border-width: 1px !important;
+    border-image-slice: 1 !important;
+    border-radius: 5px !important;
 }
-

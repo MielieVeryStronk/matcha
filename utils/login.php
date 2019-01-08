@@ -28,6 +28,9 @@ if (isset($_POST['submit']))
 			$_SESSION['u_id'] = $result['user_id'];
 			$_SESSION['u_name'] = $result['user_name'];
 			$_SESSION['u_email'] = $result['user_email'];
+			$_SESSION['u_email'] = $result['user_email'];
+			$_SESSION['u_gender'] = $result['user_gender'];
+			$_SESSION['u_pref'] = $result['user_sex_pref'];
 			header("Location: ../profile.php?login=success");
 			exit();
 		}
