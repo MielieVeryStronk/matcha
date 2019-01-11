@@ -363,3 +363,29 @@ form.signup-form button:hover {
     border-image-slice: 1 !important;
     border-radius: 5px !important;
 }
+
+.profile-img {
+    width: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.profile-img-extra {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.profile-block {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: red;
+    color: white;
+    padding-top: 50%;
+    padding-bottom: 50%;
+}

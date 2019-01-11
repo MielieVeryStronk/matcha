@@ -47,6 +47,9 @@ try {
 	user_gender int(2) DEFAULT 0,
 	user_bio varchar(256),
 	user_tags varchar(256),
+	user_likes int(8) DEFAULT 0,
+	user_fame int(8) DEFAULT 0,
+	user_views int(8) DEFAULT 0,
 	user_birth date,
 	user_pwd varchar(256) not null,
 	user_img1 longblob,
@@ -175,7 +178,7 @@ try {
 	$query = "CREATE TABLE likes (
 	lke_id int(11) not null AUTO_INCREMENT PRIMARY KEY,
 	lke_user varchar(256) not null,
-	lke_img int(11) not null
+	lke_profile varchar(256) not null
 	);";
 	$stmt = $pdo->prepare($query);
 	$stmt->execute();

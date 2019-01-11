@@ -21,8 +21,8 @@ foreach ($result as $card) {
     // }
 if (matchCard($_SESSION['u_gender'], $_SESSION['u_pref'], $card['user_gender'], $card['user_sex_pref']) && $card['user_name'] != $_SESSION['u_name']) { // Sexual Preference Matching
 echo '<div class="col-lg-3 mt-4" style="width: 300px;">
-<div class="card">
-    <img class="card-img-top" src="data:image/png;base64,'.$card['user_img1'].'" alt="Card image cap">
+<div class="card text-center">
+    <a href="userProfile.php?user='.$card['user_name'].'"><img class="card-img-top" src="data:image/png;base64,'.$card['user_img1'].'" alt="Card image cap"></a>
     <div class="card-body p-3">
     <div class="w-100 text-center mb-2">
         <h5 class="card-title">'.$card['user_name'].'</h5>';
@@ -41,8 +41,11 @@ echo '<div class="col-lg-3 mt-4" style="width: 300px;">
             echo '<img src="resources/icons/man.png" width="30" height="30" alt="">';
         }
 echo    '</div>
-    <p class="card-text">'.$card['user_bio'].'</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <p class="card-text text-left">'.$card['user_bio'].'</p>
+    <form action="utils/like.php" method="POST">
+        <input type="hidden" name="id" value="'.$card['user_name'].'">
+        <button type="submit" name="submit" value="submit" class="w3-button w3-hover-white"><div class="heart display-inline-block w3-margin"><div class="like-number">'.$card['user_likes'].'</div></div></button>
+    </form>
     </div>
     </div>
 </div>';
@@ -78,23 +81,23 @@ function matchCard($userGender, $userPref, $matchGender, $matchPref) {
 function getCode($gender, $pref) {
     if ($gender == 0) {
         if ($pref == 0) {
-            return (2);
+            return (2); //gay
         }
         elseif ($pref == 1) {
-            return (1);
+            return (1); //straight male
         }
         elseif ($pref == 2) {
-            return (3);
+            return (3); //bi male
         }
     } elseif ($gender == 1) {
         if ($pref == 0) {
-            return (5);
+            return (4); //straight female
         }
         elseif ($pref == 1) {
-            return (4);
+            return (5); //lesbian
         }
         elseif ($pref == 2) {
-            return (6);
+            return (6); //bi female
         }
     }
 }
