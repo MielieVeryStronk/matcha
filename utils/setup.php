@@ -60,7 +60,9 @@ try {
 	user_valid varchar(5) DEFAULT false,
 	user_time datetime default CURRENT_TIMESTAMP,
 	user_verify_hash varchar(32) not null,
-	user_notify varchar(5) default true
+	user_notify varchar(5) default true,
+	user_online varchar(5) DEFAULT false,
+	user_last_online datetime default CURRENT_TIMESTAMP
 	);";
 	$stmt = $pdo->prepare($query);
 	$stmt->execute();

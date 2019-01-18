@@ -18,7 +18,7 @@ $query = 'UPDATE users SET user_fame=user_views/10 + user_likes WHERE user_name=
 $stmt = $pdo->prepare($query);
 $stmt->execute([$_GET['user']]);
 
-echo '<section class="container text-center w-100 mt-5 border border-dark rounded" style="max-width: 900px">
+echo '<section class="container text-center w-100 mt-5 mb-5 border border-dark rounded" style="max-width: 900px">
     <div class="main-wrapper">
     <img class="profile-img mt-4 mb-2" src="data:image/png;base64,'.$result['user_img1'].'">
     <div class="row mb-4">
