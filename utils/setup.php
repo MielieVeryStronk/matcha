@@ -71,11 +71,11 @@ try {
     die("table USERS create failure".$e->getMessage()."</br>");
 }
 
-// Test Profiles
+// Matching Test Profiles
 $image1 = base64_encode(file_get_contents("../resources/images/profiles/zuck.jpeg"));
 $image2 = base64_encode(file_get_contents("../resources/images/profiles/elton.jpg"));
 $image3 = base64_encode(file_get_contents("../resources/images/profiles/tom.jpg"));
-$image4 = base64_encode(file_get_contents("../resources/images/profiles/scarlett.jpg"));
+$image4 = base64_encode(file_get_contents("../resources/images/profiles/scarlett.jpeg"));
 $image5 = base64_encode(file_get_contents("../resources/images/profiles/ellen.jpg"));
 $image6 = base64_encode(file_get_contents("../resources/images/profiles/katy.jpg"));
 // M4F
@@ -108,6 +108,74 @@ $image6 = base64_encode(file_get_contents("../resources/images/profiles/katy.jpg
 	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
 	$stmt = $pdo->prepare($query);
 	$stmt->execute(["Miss", "Bi", "msbi", "msbi@test.com", 2, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", "1997-07-11", $hashedPwd, "test", true, $image6]);
+
+// Creating Dummy/Filler Profiles
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/mrstraight") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/mrstraight/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 1, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/mrgay") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/mrgay/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 0, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/mrbi") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/mrbi/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 2, 0, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/msstraight") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/msstraight/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 0, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/mslesbian") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/mslesbian/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 1, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
+$birthDiff = 0;
+foreach (scandir("../resources/images/dummyProfiles/msbi") as $file) {
+	if ($file != "." && $file != "..") {
+	$image = base64_encode(file_get_contents("../resources/images/dummyProfiles/msbi/".$file));
+	$filename = substr($file, 0, strrpos($file, "."));
+	$hashedPwd = password_hash("test", PASSWORD_DEFAULT);
+	$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute([$filename, $filename, $filename, $filename."@test.com", 2, 1, "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.", ",1,3,8,15,23,22,164", 1997-($birthDiff++)."-07-11", $hashedPwd, "test", true, $image]);
+	}
+}
 
 // create img table
 

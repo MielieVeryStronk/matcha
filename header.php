@@ -23,6 +23,12 @@ session_start();
 				<a href="forgotPass.php" class="nav-item nav-link text-light d-lg-none" title="Sign Up">Forgot Password?</a>
       </li>
 			<?php } else { ?>
+				<li class="nav-item active">
+        <a class="nav-item nav-link text-light" href="/matcha/matches.php">Matches </a>
+      </li>
+				<li class="nav-item active">
+        <a class="nav-item nav-link text-light" href="/matcha/profile.php">Profile </a>
+      </li>
       <li class="nav-item">
 				<a href="utils/logout.php" class="nav-item nav-link text-light d-lg-none" title="Sign Up">Log Out</a>
       </li>

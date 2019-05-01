@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 ?>
 <title>Matcha</title>
 <body class="w3-theme-d3 landing-back">

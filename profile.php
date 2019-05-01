@@ -11,7 +11,11 @@ $result = $stmt->fetch();
 ?>
 
 <section class="container text-center w-75 mt-5 mb-5 border border-dark rounded pt-3" style="max-width: 600px">
-	<div class="main-wrapper">
+	<h1>Profile</h1>
+  <div class="main-wrapper">
+    <?php if (isset($_GET['profile'])){ ?>
+      <p style="color: red;">Profile is incomplete. You must fill all fields and have at least one profile image to start matching!</p>
+     <?php }?>
 		<form action="utils/profile.php" method="POST" enctype="multipart/form-data">
 <!-- First Name -->
         <div class="form-group text-left">
@@ -29,6 +33,14 @@ $result = $stmt->fetch();
             <input type="text" class="form-control" name="username" id="userBox" aria-describedby="PassHelp" value="<?php echo $result['user_name'] ?>" required>
         </div>
 <br />
+
+<!-- Location -->
+<!-- <h4>Location:</h4>
+        <div class="form-group text-left">
+            <label for="passBox">Location</label>
+            <input type="Location" class="form-control" name="username" id="userBox" aria-describedby="PassHelp" value="<?php echo $result['user_name'] ?>" required>
+        </div>
+<br /> -->
 
 <!-- Sexual Preference -->
 <div class="text-left">

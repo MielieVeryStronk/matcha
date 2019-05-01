@@ -4,7 +4,10 @@ $count = 0;
 echo '<body';
 include_once 'stylesheets.php';
 include_once 'header.php';
+require("utils/redirect.php");
+
 include_once 'utils/database.php';
+
 try {
     $query = "SELECT * FROM users";
     $stmt = $pdo->prepare($query);
@@ -25,7 +28,7 @@ echo '<div class="col-lg-3 mt-4" style="width: 300px;">
     <a href="userProfile.php?user='.$card['user_name'].'"><img class="card-img-top" src="data:image/png;base64,'.$card['user_img1'].'" alt="profile"></a>
     <div class="card-body p-3">
     <div class="w-100 text-center mb-2">
-        <h5 class="card-title">'.$card['user_name'].'</h5>';
+        <h5 class="card-title">'.$card['user_name']." ".getAge($card['user_birth']).'</h5>';
         if ($card['user_gender'] == 0) {
             echo '<img src="resources/icons/man.png" width="30" height="30" alt="">';
         } else {
@@ -100,5 +103,12 @@ function getCode($gender, $pref) {
             return (6); //bi female
         }
     }
+}
+
+function getAge($birthDate) {
+    $date = new DateTime($birthDate);
+    $now = new DateTime();
+    $age = $now->diff($date);
+    return $age->y;
 }
 ?>

@@ -76,7 +76,10 @@ if (isset($_FILES['img5']['tmp_name'])) {
             die("table USERS create failure".$e->getMessage()."</br>");
         }
     }
-
-    header("Location: ../profile.php");
+    if (!checkProfile($_SESSION['u_name'], $pdo)) {
+        header("Location: ../profile.php?profile=incomplete");
+    } else {
+        header("Location: ../matches.php");
+    }
 }
 ?>
