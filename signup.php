@@ -20,13 +20,15 @@ include_once 'header.php';
 			<input type="text" class="form-control" name="username" id="userBox" aria-describedby="userHelp" placeholder="Username" required>
 		</div>
 			<?php
-			if ($_GET['signup'] == 'invalid')
-			{
-				echo '<p class="signup-err w3-text-theme">Names can only contain letters.</p>';
-			}
-			elseif ($_GET['signup'] == 'usertaken')
-			{
-				echo '<p class="signup-err w3-text-theme">Username / email taken.</p>';
+			if (isset($_GET['signup'])) {
+				if ($_GET['signup'] == 'invalid')
+				{
+					echo '<p class="signup-err w3-text-theme">Names can only contain letters.</p>';
+				}
+				elseif ($_GET['signup'] == 'usertaken')
+				{
+					echo '<p class="signup-err w3-text-theme">Username / email taken.</p>';
+				}
 			}
 			?>
 			<div class="form-group text-left">
@@ -42,17 +44,19 @@ include_once 'header.php';
 				<input type="password" class="form-control" name="pwdConfirm" id="passConBox" aria-describedby="PassConHelp" placeholder="Confirm Password" required>
 			</div>
 			<?php
+			if (isset($_GET['signup'])) {
 			if ($_GET['signup'] == 'pwdinvalid')
-			{
-				echo '<p class="signup-err w3-text-theme">Password must be at least 8 characters long and contain at least one number.</p>';
-			}
-			elseif ($_GET['signup'] == 'pwdmatch')
-			{
-				echo '<p class="signup-err w3-text-theme">Passwords do not match.</p>';
-			}
-			elseif ($_GET['signup'] == 'success')
-			{
-				echo '<p class="signup-err w3-text-theme">Signup successful, please check your emails to validate account.</p>';
+				{
+					echo '<p class="signup-err w3-text-theme">Password must be at least 8 characters long and contain at least one number.</p>';
+				}
+				elseif ($_GET['signup'] == 'pwdmatch')
+				{
+					echo '<p class="signup-err w3-text-theme">Passwords do not match.</p>';
+				}
+				elseif ($_GET['signup'] == 'success')
+				{
+					echo '<p class="signup-err w3-text-theme">Signup successful, please check your emails to validate account.</p>';
+				}
 			}
 			?>
 			<button class="btn btn-primary" type="submit" name="submit">Sign up</button>

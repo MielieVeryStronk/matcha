@@ -70,16 +70,20 @@ if (isset($_POST['submit']))
 					$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_pwd=?, user_verify_hash=?";
 					$stmt = $pdo->prepare($query);
 					$stmt->execute([$first, $last, $username, $email, $hashedPwd, $verify_hash]);
-					header("Location: ../signup.php?signup=success");
 					$subject = 'Matcha Signup Verification';
-					$message = '
+					$message = wordwrap('
 					Thanks for signing up!
 					Your account has been created.
-
+					
 					Please click this link to activate your account:
-					http://localhost:8080/Matcha/utils/verify.php?email='.$email.'&hash='.$verify_hash;
-					$headers = 'From:noreply@Matcha.enikel' . "\r\n";
-					mail($email, $subject, $message, $headers);
+					http://localhost:8080/Matcha/utils/verify.php?email='.$email.'&hash='.$verify_hash, 70);
+					$headers = 'From: nikel.emile@gmail.com' . "\r\n";
+					$mail = mail($email, $subject, $message, $headers);
+					if ($mail) {
+						header("Location: ../signup.php?signup=success");
+					} else {
+						header("Location: ../signup.php?signup=emailnotsent");
+					}
 					exit();
 				}
 			}
