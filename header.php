@@ -38,7 +38,7 @@ session_start();
 
 <?php		
 if (!isset($_SESSION['u_name'])) {
-?>
+	?>
 		<form class="form-inline my-2 my-lg-0 d-none d-lg-block" action="utils/login.php" method="POST">
 		<input type="submit" class="btn btn-outline-light my-2 my-sm-0 mr-2" title="login" value="Login" name="submit">
 		<input type="text" class="form-control mr-sm-2" title="username" value="" name="username" placeholder="Username" tabindex="1">
@@ -49,6 +49,7 @@ if (!isset($_SESSION['u_name'])) {
 }
 else
 {
+	include_once 'chatWindow.php';
 		echo '<form class="d-none d-lg-block" action="utils/logout.php" method="POST">
 				<button class="btn btn-outline-light my-2 my-sm-0" title="logout" value="Logout" name="submit">Logout</button>
 				</form>

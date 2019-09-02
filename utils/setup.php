@@ -2,7 +2,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "aassdd";
+$dbPassword = "123qwe";
 $dbName = "Matcha";
 $dbCharset = "utf8mb4";
 $options = array(
@@ -255,6 +255,24 @@ try {
 	echo "table LIKES create success</br>";
 } catch (PDOException $e) {
 	die("table LIKES create failure".$e->getMessage()."</br>");
+}
+
+// create message table
+
+try {
+	$query = "CREATE TABLE `chat_message` (
+	`chat_message_id` int(11) not null AUTO_INCREMENT PRIMARY KEY,
+	`to_user_id` int(11) not null,
+	`from_user_id` int(11) not null,
+	`chat_message` text not null,
+	`timestamp` timestamp not null default CURRENT_TIMESTAMP,
+	`status` int(1) not null
+  );";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute();
+	echo "table CHAT_MESSAGE create success</br>";
+} catch (PDOException $e) {
+	die("table CHAT_MESSAGE create failure".$e->getMessage()."</br>");
 }
 
 // Tag Data
