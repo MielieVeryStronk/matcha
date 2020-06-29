@@ -2,7 +2,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "123qwe";
+$dbPassword = "root";
 $dbName = "Matcha";
 $dbCharset = "utf8mb4";
 $options = array(

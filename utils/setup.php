@@ -2,7 +2,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbPassword = "123qwe";
+$dbPassword = "root";
 $dbName = "Matcha";
 $dbCharset = "utf8mb4";
 $options = array(
@@ -291,112 +291,112 @@ echo "Tags added </br>";
 
 // // add testing images and comments
 
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg1.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg1.jpg', $blob, 'admin']);
-// 	echo "test image 1 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 1 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg2.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg2.jpg', $blob, 'admin']);
-// 	echo "test image 2 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 2 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg3.jpeg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg3.jpeg', $blob, 'admin']);
-// 	echo "test image 3 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 3 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg4.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg4.jpg', $blob, 'admin']);
-// 	echo "test image 4 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 4 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg5.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg5.jpg', $blob, 'admin']);
-// 	echo "test image 5 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 5 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg6.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg6.jpg', $blob, 'admin']);
-// 	echo "test image 6 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 6 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg7.jpeg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg7.jpeg', $blob, 'admin']);
-// 	echo "test image 7 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 7 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$blob = file_get_contents("../resources/testing/testimg8.jpg");
-// 	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['testimg8.jpg', $blob, 'admin']);
-// 	echo "test image 8 added</br>";
-// } catch (PDOException $e) {
-// 	die("test image 8 create failure".$e->getMessage()."</br>");
-// }
+try {
+	$blob = file_get_contents("../resources/testing/testimg1.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg1.jpg', $blob, 'admin']);
+	echo "test image 1 added</br>";
+} catch (PDOException $e) {
+	die("test image 1 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg2.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg2.jpg', $blob, 'admin']);
+	echo "test image 2 added</br>";
+} catch (PDOException $e) {
+	die("test image 2 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg3.jpeg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg3.jpeg', $blob, 'admin']);
+	echo "test image 3 added</br>";
+} catch (PDOException $e) {
+	die("test image 3 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg4.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg4.jpg', $blob, 'admin']);
+	echo "test image 4 added</br>";
+} catch (PDOException $e) {
+	die("test image 4 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg5.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg5.jpg', $blob, 'admin']);
+	echo "test image 5 added</br>";
+} catch (PDOException $e) {
+	die("test image 5 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg6.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg6.jpg', $blob, 'admin']);
+	echo "test image 6 added</br>";
+} catch (PDOException $e) {
+	die("test image 6 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg7.jpeg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg7.jpeg', $blob, 'admin']);
+	echo "test image 7 added</br>";
+} catch (PDOException $e) {
+	die("test image 7 create failure".$e->getMessage()."</br>");
+}
+try {
+	$blob = file_get_contents("../resources/testing/testimg8.jpg");
+	$query = "INSERT INTO img (img_name, img_src, img_user) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['testimg8.jpg', $blob, 'admin']);
+	echo "test image 8 added</br>";
+} catch (PDOException $e) {
+	die("test image 8 create failure".$e->getMessage()."</br>");
+}
 
-// // comments
+// comments
 
-// try {
-// 	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['very nice', 'admin', 1]);
-// 	echo "comment 1 added</br>";
-// } catch (PDOException $e) {
-// 	die("comment 1 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['this is so cool', 'admin', 4]);
-// 	echo "comment 2 added</br>";
-// } catch (PDOException $e) {
-// 	die("comment 2 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['wow dude', 'admin', 5]);
-// 	echo "comment 3 added</br>";
-// } catch (PDOException $e) {
-// 	die("comment 3 create failure".$e->getMessage()."</br>");
-// }
-// try {
-// 	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
-// 	$stmt = $pdo->prepare($query);
-// 	$stmt->execute(['this is great', 'admin', 1]);
-// 	echo "comment 4 added</br>";
-// } catch (PDOException $e) {
-// 	die("comment 4 create failure".$e->getMessage()."</br>");
-// }
+try {
+	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['very nice', 'admin', 1]);
+	echo "comment 1 added</br>";
+} catch (PDOException $e) {
+	die("comment 1 create failure".$e->getMessage()."</br>");
+}
+try {
+	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['this is so cool', 'admin', 4]);
+	echo "comment 2 added</br>";
+} catch (PDOException $e) {
+	die("comment 2 create failure".$e->getMessage()."</br>");
+}
+try {
+	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['wow dude', 'admin', 5]);
+	echo "comment 3 added</br>";
+} catch (PDOException $e) {
+	die("comment 3 create failure".$e->getMessage()."</br>");
+}
+try {
+	$query = "INSERT INTO comments (cmt_comment, cmt_user, cmt_img) VALUES (?, ?, ?)";
+	$stmt = $pdo->prepare($query);
+	$stmt->execute(['this is great', 'admin', 1]);
+	echo "comment 4 added</br>";
+} catch (PDOException $e) {
+	die("comment 4 create failure".$e->getMessage()."</br>");
+}
 
 ?>

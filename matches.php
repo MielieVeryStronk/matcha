@@ -25,7 +25,9 @@ foreach ($result as $card) {
 if (matchCard($_SESSION['u_gender'], $_SESSION['u_pref'], $card['user_gender'], $card['user_sex_pref']) && $card['user_name'] != $_SESSION['u_name']) { // Sexual Preference Matching
 echo '<div class="col-lg-3 mt-4" style="width: 300px;">
 <div class="card text-center">
+    <div class="card_img_container">
     <a href="userProfile.php?user='.$card['user_name'].'"><img class="card-img-top" src="data:image/png;base64,'.$card['user_img1'].'" alt="profile"></a>
+    </div>
     <div class="card-body p-3">
     <div class="w-100 text-center mb-2">
         <h5 class="card-title">'.$card['user_name']." ".getAge($card['user_birth']).'</h5>';
