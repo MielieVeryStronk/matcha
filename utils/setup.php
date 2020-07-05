@@ -407,7 +407,7 @@ for($i = 1; $i <= 5; $i++) {
 		try {
 			$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_likes=?, user_views=?, user_fame=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?, user_img2=?, user_img3=?, user_img4=?, user_img5=?";
 			$stmt = $pdo->prepare($query);
-			$stmt->execute([$user['user_first'], $user['user_last'], $user['user_last'], $user['user_email'], $user['user_sex_pref'], $user['user_gender'], $user['user_bio'], $user['user_tags'], $user['user_likes'], $user['user_views'], $user['user_views']/10 + $user['user_likes'], $user['user_birth'], $user['user_pwd'], "test", true, $user['user_img1'], $user['user_img2'], $user['user_img3'], $user['user_img4'], $user['user_img5']]);
+			$stmt->execute([$user['user_first'], $user['user_last'], $user['user_name'], $user['user_email'], $user['user_sex_pref'], $user['user_gender'], $user['user_bio'], $user['user_tags'], $user['user_likes'], $user['user_views'], $user['user_views']/10 + $user['user_likes'], $user['user_birth'], $user['user_pwd'], "test", true, $user['user_img1'], $user['user_img2'], $user['user_img3'], $user['user_img4'], $user['user_img5']]);
 		} catch (PDOException $e) {
 			die("extended users create failure".$e->getMessage()."</br>");
 		}
