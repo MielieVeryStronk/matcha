@@ -23,6 +23,7 @@ foreach ($result as $card) {
     //     echo "<div class='row'>";
     // }
 if (matchCard($_SESSION['u_gender'], $_SESSION['u_pref'], $card['user_gender'], $card['user_sex_pref']) && $card['user_name'] != $_SESSION['u_name']) { // Sexual Preference Matching
+$image = $card['user_img1'];
 echo '<div class="col-lg-3 mt-4" style="width: 300px;">
 <div class="card text-center">
     <div class="card_img_container">

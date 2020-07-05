@@ -399,4 +399,40 @@ try {
 	die("comment 4 create failure".$e->getMessage()."</br>");
 }
 
+// more users to meet requirement
+
+for($i = 1; $i <= 5; $i++) {
+	$users = csvToArray('../resources/csv/users_'.$i.'.csv', '|');
+	foreach($users as $user) {
+		try {
+			$query = "INSERT into `users` SET user_first=?, user_last=?, user_name=?, user_email=?, user_sex_pref=?, user_gender=?, user_bio=?, user_tags=?, user_likes=?, user_views=?, user_fame=?, user_birth=?, user_pwd=?, user_verify_hash=?, user_valid=?, user_img1=?, user_img2=?, user_img3=?, user_img4=?, user_img5=?";
+			$stmt = $pdo->prepare($query);
+			$stmt->execute([$user['user_first'], $user['user_last'], $user['user_last'], $user['user_email'], $user['user_sex_pref'], $user['user_gender'], $user['user_bio'], $user['user_tags'], $user['user_likes'], $user['user_views'], $user['user_views']/10 + $user['user_likes'], $user['user_birth'], $user['user_pwd'], "test", true, $user['user_img1'], $user['user_img2'], $user['user_img3'], $user['user_img4'], $user['user_img5']]);
+		} catch (PDOException $e) {
+			die("extended users create failure".$e->getMessage()."</br>");
+		}
+	}
+}
+
+function csvToArray($filename, $delimiter)
+{
+    if (!file_exists($filename) || !is_readable($filename)) {
+        return false;
+    }
+
+    $header = NULL;
+    $result = array();
+    if (($handle = fopen($filename, 'r')) !== FALSE) {
+        while (($row = fgetcsv($handle, 99999, $delimiter)) !== FALSE) {
+            if (!$header)
+                $header = $row;
+            else
+                $result[] = array_combine($header, $row);
+        }
+        fclose($handle);
+    }
+
+
+    return $result;
+}
 ?>
